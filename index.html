@@ -1,0 +1,1875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Business Demos Directory Portal</title>
+    <meta name="description" content="Explore 98 highly customized, premium business demo websites across 15+ categories.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #07090e;
+            --surface: #0e121a;
+            --surface-hover: #141a26;
+            --primary: #6366f1;
+            --primary-glow: rgba(99, 102, 241, 0.15);
+            --secondary: #10b981;
+            --secondary-glow: rgba(16, 185, 129, 0.15);
+            --accent: #f43f5e;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: rgba(255, 255, 255, 0.05);
+            
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --font-display: 'Outfit', sans-serif;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-bottom: 80px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header Portal */
+        .portal-header {
+            position: relative;
+            padding: 100px 0 60px;
+            text-align: center;
+            background: radial-gradient(circle at 50% -10%, var(--primary-glow) 0%, transparent 60%);
+        }
+
+        .portal-tagline {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 30px;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            font-family: var(--font-display);
+        }
+
+        .portal-header h1 {
+            font-family: var(--font-display);
+            font-size: 52px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #ffffff 30%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .portal-header p {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto 40px;
+        }
+
+        /* Statistics Cards Row */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .stat-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(99,102,241,0.2);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+        }
+
+        .stat-card-value {
+            font-family: var(--font-display);
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+
+        .stat-card-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Filter Controls */
+        .controls-wrapper {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            margin-bottom: 48px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+
+        .search-container {
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 18px 24px 18px 56px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            background-color: var(--bg);
+            color: var(--text);
+            font-size: 16px;
+            font-family: var(--font-main);
+            transition: var(--transition);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px var(--primary-glow);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 22px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            opacity: 0.5;
+        }
+
+        /* Filter Chips */
+        .chips-container {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            max-height: 200px;
+            overflow-y: auto;
+            padding-right: 8px;
+        }
+
+        .chips-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chips-container::-webkit-scrollbar-thumb {
+            background-color: var(--border);
+            border-radius: 3px;
+        }
+
+        .chip {
+            padding: 8px 16px;
+            border-radius: 30px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .chip:hover {
+            background: var(--surface-hover);
+            color: var(--text);
+            border-color: rgba(255,255,255,0.1);
+        }
+
+        .chip.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px var(--primary-glow);
+        }
+
+        /* Grid Results Counter */
+        .results-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* Directory Cards Grid */
+        .directory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 24px;
+        }
+
+        .biz-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 28px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .biz-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .biz-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255,255,255,0.1);
+            background-color: var(--surface-hover);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+        }
+
+        .biz-card:hover::after {
+            opacity: 1;
+        }
+
+        .biz-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .biz-icon-container {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--primary-glow);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .biz-title-box h3 {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            line-height: 1.3;
+            margin-bottom: 2px;
+        }
+
+        .biz-category {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--primary);
+        }
+
+        .biz-details {
+            margin-bottom: 24px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .biz-details-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
+        .biz-rating-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .rating-badge {
+            background: rgba(255, 184, 0, 0.1);
+            color: #FFB800;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        .stars-box {
+            color: #FFB800;
+            display: flex;
+            font-size: 14px;
+        }
+
+        .biz-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            background: var(--primary-glow);
+            border: 1px solid rgba(99,102,241,0.2);
+            color: #a5b4fc;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            transition: var(--transition);
+            width: 100%;
+            cursor: pointer;
+            gap: 6px;
+        }
+
+        .biz-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px var(--primary-glow);
+        }
+
+        .copy-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            background: rgba(16, 185, 129, 0.1) !important;
+            border: 1px solid rgba(16, 185, 129, 0.25) !important;
+            color: #10b981 !important;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: var(--transition);
+            cursor: pointer;
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+        }
+
+        .copy-btn:hover {
+            background: #10b981 !important;
+            color: white !important;
+            border-color: #10b981 !important;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .copy-btn:active {
+            transform: translateY(0);
+        }
+
+        .copy-btn.copied {
+            background: #059669 !important;
+            color: white !important;
+            border-color: #059669 !important;
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+        }
+
+        /* Glassmorphic Toast Notification */
+        .toast-notification {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translate(-50%, 50px);
+            background: rgba(14, 18, 26, 0.95);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            color: #f8fafc;
+            padding: 16px 28px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 600;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(99, 102, 241, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .toast-notification.active {
+            transform: translate(-50%, 0);
+            opacity: 1;
+        }
+
+        .toast-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #10b981;
+            color: white;
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .empty-state {
+            display: none;
+            text-align: center;
+            padding: 80px 0;
+            color: var(--text-muted);
+        }
+
+        .empty-state-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            .portal-header h1 {
+                font-size: 42px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .stats-row {
+                grid-template-columns: 1fr;
+            }
+            .controls-wrapper {
+                padding: 20px;
+            }
+            .directory-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="portal-header">
+        <div class="container">
+            <span class="portal-tagline">Sandbox Showcase</span>
+            <h1>Local Business Demos</h1>
+            <p>A beautifully styled directory containing 98 live business websites customized for their respective categories with premium layouts and custom forms.</p>
+        </div>
+    </header>
+
+    <!-- Stats and Search Console -->
+    <main class="container">
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-card-value">98</div>
+                <div class="stat-card-label">Total Demos</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-value">4.8★</div>
+                <div class="stat-card-label">Average Rating</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-value">15</div>
+                <div class="stat-card-label">Niche Categories</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-value">15</div>
+                <div class="stat-card-label">Cities Covered</div>
+            </div>
+        </div>
+
+        <div class="controls-wrapper">
+            <div class="search-container">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-input" id="search-bar" placeholder="Search by business name, niche category, city, or state..." oninput="handleSearch()">
+            </div>
+            <div class="chips-container">
+                <button class="chip active" onclick="filterCategory('All')">✨ All Categories</button>
+<button class="chip" onclick="filterCategory('AC/Refrigeration Repair')">❄️ AC/Refrigeration Repair</button>
+<button class="chip" onclick="filterCategory('Ayurvedic/Herbal Store')">🍃 Ayurvedic/Herbal Store</button>
+<button class="chip" onclick="filterCategory('Beauty Parlour/Salon')">💅 Beauty Parlour/Salon</button>
+<button class="chip" onclick="filterCategory('Catering/Events')">👨‍🍳 Catering/Events</button>
+<button class="chip" onclick="filterCategory('Civil Contractor')">🏗️ Civil Contractor</button>
+<button class="chip" onclick="filterCategory('Coaching Center')">🎓 Coaching Center</button>
+<button class="chip" onclick="filterCategory('Dance/Music Classes')">🎵 Dance/Music Classes</button>
+<button class="chip" onclick="filterCategory('Event Decorator')">🎈 Event Decorator</button>
+<button class="chip" onclick="filterCategory('Mehendi Artist')">✨ Mehendi Artist</button>
+<button class="chip" onclick="filterCategory('Nursery/Plant Shop')">🌿 Nursery/Plant Shop</button>
+<button class="chip" onclick="filterCategory('Packers & Movers')">🚛 Packers & Movers</button>
+<button class="chip" onclick="filterCategory('Photography Studio')">📷 Photography Studio</button>
+<button class="chip" onclick="filterCategory('Plumber/Electrician')">🔧 Plumber/Electrician</button>
+<button class="chip" onclick="filterCategory('Tailor/Boutique')">📏 Tailor/Boutique</button>
+<button class="chip" onclick="filterCategory('Tiffin/Dabba Service')">🍱 Tiffin/Dabba Service</button>
+            </div>
+        </div>
+
+        <div class="results-bar">
+            <span id="results-count">Showing 98 businesses</span>
+            <span>Premium Demos Showcase</span>
+        </div>
+
+        <!-- Grid Container -->
+        <div class="directory-grid" id="directory-grid">
+            <!-- Dynamically populated -->
+        </div>
+
+        <div class="empty-state" id="empty-state">
+            <div class="empty-state-icon">🔍</div>
+            <h3>No Businesses Found</h3>
+            <p>Try refining your search keyword or selecting a different category filter.</p>
+        </div>
+    </main>
+
+    <!-- Glassmorphic Toast Notification Container -->
+    <div id="toast" class="toast-notification">
+        <span class="toast-icon">✓</span>
+        <span id="toast-message">Website link copied successfully!</span>
+    </div>
+
+    <script>
+        const BUSINESSES = [
+        {
+            sNo: "1",
+            name: "Darzi Boutique",
+            category: "Tailor/Boutique",
+            city: "Jaipur",
+            state: "Rajasthan",
+            rating: 5.0,
+            reviews: 9,
+            icon: "📏",
+            url: "./1-darzi-boutique/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/1-darzi-boutique/"
+        },
+        {
+            sNo: "2",
+            name: "Tiffny - A Homely Tiffin Service",
+            category: "Tiffin/Dabba Service",
+            city: "Pune",
+            state: "Maharashtra",
+            rating: 4.4,
+            reviews: 171,
+            icon: "🍱",
+            url: "./2-tiffny-a-homely-tiffin-service/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/2-tiffny-a-homely-tiffin-service/"
+        },
+        {
+            sNo: "3",
+            name: "Abhinav Bhojan Baner",
+            category: "Tiffin/Dabba Service",
+            city: "Pune",
+            state: "Maharashtra",
+            rating: 4.8,
+            reviews: 244,
+            icon: "🍱",
+            url: "./3-abhinav-bhojan-baner/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/3-abhinav-bhojan-baner/"
+        },
+        {
+            sNo: "4",
+            name: "Shree Ganesh Tasty & Healthy Tiffin Service",
+            category: "Tiffin/Dabba Service",
+            city: "Pune",
+            state: "Maharashtra",
+            rating: 4.8,
+            reviews: 60,
+            icon: "🍱",
+            url: "./4-shree-ganesh-tasty-healthy-tiffin-service/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/4-shree-ganesh-tasty-healthy-tiffin-service/"
+        },
+        {
+            sNo: "5",
+            name: "Akshay Annapurna",
+            category: "Tiffin/Dabba Service",
+            city: "Pune",
+            state: "Maharashtra",
+            rating: 4.8,
+            reviews: 111,
+            icon: "🍱",
+            url: "./5-akshay-annapurna/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/5-akshay-annapurna/"
+        },
+        {
+            sNo: "6",
+            name: "The Daily Tiffins",
+            category: "Tiffin/Dabba Service",
+            city: "Pune",
+            state: "Maharashtra",
+            rating: 5.0,
+            reviews: 40,
+            icon: "🍱",
+            url: "./6-the-daily-tiffins/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/6-the-daily-tiffins/"
+        },
+        {
+            sNo: "7",
+            name: "Punyacha Dabbewala",
+            category: "Tiffin/Dabba Service",
+            city: "Pune",
+            state: "Maharashtra",
+            rating: 4.9,
+            reviews: 386,
+            icon: "🍱",
+            url: "./7-punyacha-dabbewala/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/7-punyacha-dabbewala/"
+        },
+        {
+            sNo: "8",
+            name: "Riwayat Tiffins",
+            category: "Tiffin/Dabba Service",
+            city: "Pune",
+            state: "Maharashtra",
+            rating: 4.9,
+            reviews: 163,
+            icon: "🍱",
+            url: "./8-riwayat-tiffins/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/8-riwayat-tiffins/"
+        },
+        {
+            sNo: "9",
+            name: "Shahi Awadh Caterers",
+            category: "Catering/Events",
+            city: "Lucknow",
+            state: "Uttar Pradesh",
+            rating: 4.8,
+            reviews: 638,
+            icon: "👨‍🍳",
+            url: "./9-shahi-awadh-caterers/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/9-shahi-awadh-caterers/"
+        },
+        {
+            sNo: "10",
+            name: "Kajal Caterers Lucknow",
+            category: "Catering/Events",
+            city: "Lucknow",
+            state: "Uttar Pradesh",
+            rating: 4.9,
+            reviews: 237,
+            icon: "👨‍🍳",
+            url: "./10-kajal-caterers-lucknow/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/10-kajal-caterers-lucknow/"
+        },
+        {
+            sNo: "11",
+            name: "Lucknowala Catering Services",
+            category: "Catering/Events",
+            city: "Lucknow",
+            state: "Uttar Pradesh",
+            rating: 4.8,
+            reviews: 281,
+            icon: "👨‍🍳",
+            url: "./11-lucknowala-catering-services/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/11-lucknowala-catering-services/"
+        },
+        {
+            sNo: "12",
+            name: "Royal Caterers",
+            category: "Catering/Events",
+            city: "Lucknow",
+            state: "Uttar Pradesh",
+            rating: 5.0,
+            reviews: 151,
+            icon: "👨‍🍳",
+            url: "./12-royal-caterers/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/12-royal-caterers/"
+        },
+        {
+            sNo: "13",
+            name: "KK Caterers",
+            category: "Catering/Events",
+            city: "Lucknow",
+            state: "Uttar Pradesh",
+            rating: 5.0,
+            reviews: 315,
+            icon: "👨‍🍳",
+            url: "./13-kk-caterers/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/13-kk-caterers/"
+        },
+        {
+            sNo: "14",
+            name: "Chef & Butler",
+            category: "Catering/Events",
+            city: "Lucknow",
+            state: "Uttar Pradesh",
+            rating: 4.9,
+            reviews: 340,
+            icon: "👨‍🍳",
+            url: "./14-chef-butler/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/14-chef-butler/"
+        },
+        {
+            sNo: "15",
+            name: "The Royal Catering Services",
+            category: "Catering/Events",
+            city: "Lucknow",
+            state: "Uttar Pradesh",
+            rating: 4.9,
+            reviews: 71,
+            icon: "👨‍🍳",
+            url: "./15-the-royal-catering-services/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/15-the-royal-catering-services/"
+        },
+        {
+            sNo: "16",
+            name: "Bright Star Caterers",
+            category: "Catering/Events",
+            city: "Lucknow",
+            state: "Uttar Pradesh",
+            rating: 5.0,
+            reviews: 64,
+            icon: "👨‍🍳",
+            url: "./16-bright-star-caterers/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/16-bright-star-caterers/"
+        },
+        {
+            sNo: "17",
+            name: "Unique IAS Study Circle",
+            category: "Coaching Center",
+            city: "Bhopal",
+            state: "Madhya Pradesh",
+            rating: 4.7,
+            reviews: 847,
+            icon: "🎓",
+            url: "./17-unique-ias-study-circle/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/17-unique-ias-study-circle/"
+        },
+        {
+            sNo: "18",
+            name: "LegalEdge Coaching Center",
+            category: "Coaching Center",
+            city: "Bhopal",
+            state: "Madhya Pradesh",
+            rating: 4.7,
+            reviews: 1047,
+            icon: "🎓",
+            url: "./18-legaledge-coaching-center/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/18-legaledge-coaching-center/"
+        },
+        {
+            sNo: "19",
+            name: "Tirupati IAS/PSC Classes",
+            category: "Coaching Center",
+            city: "Bhopal",
+            state: "Madhya Pradesh",
+            rating: 5.0,
+            reviews: 287,
+            icon: "🎓",
+            url: "./19-tirupati-iaspsc-classes/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/19-tirupati-iaspsc-classes/"
+        },
+        {
+            sNo: "20",
+            name: "Definite Success Classes",
+            category: "Coaching Center",
+            city: "Bhopal",
+            state: "Madhya Pradesh",
+            rating: 4.9,
+            reviews: 605,
+            icon: "🎓",
+            url: "./20-definite-success-classes/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/20-definite-success-classes/"
+        },
+        {
+            sNo: "21",
+            name: "Puneet sir ki pathshala",
+            category: "Coaching Center",
+            city: "Bhopal",
+            state: "Madhya Pradesh",
+            rating: 5.0,
+            reviews: 139,
+            icon: "🎓",
+            url: "./21-puneet-sir-ki-pathshala/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/21-puneet-sir-ki-pathshala/"
+        },
+        {
+            sNo: "22",
+            name: "Mahendra's Institute Bhopal",
+            category: "Coaching Center",
+            city: "Bhopal",
+            state: "Madhya Pradesh",
+            rating: 4.3,
+            reviews: 1334,
+            icon: "🎓",
+            url: "./22-mahendras-institute-bhopal/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/22-mahendras-institute-bhopal/"
+        },
+        {
+            sNo: "23",
+            name: "Green Garden Nursery",
+            category: "Nursery/Plant Shop",
+            city: "Nagpur",
+            state: "Maharashtra",
+            rating: 5.0,
+            reviews: 67,
+            icon: "🌿",
+            url: "./23-green-garden-nursery/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/23-green-garden-nursery/"
+        },
+        {
+            sNo: "24",
+            name: "Green Gifts Nagpur Nursery",
+            category: "Nursery/Plant Shop",
+            city: "Nagpur",
+            state: "Maharashtra",
+            rating: 4.9,
+            reviews: 99,
+            icon: "🌿",
+            url: "./24-green-gifts-nagpur-nursery/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/24-green-gifts-nagpur-nursery/"
+        },
+        {
+            sNo: "25",
+            name: "LEAFLINGS NURSERY",
+            category: "Nursery/Plant Shop",
+            city: "Nagpur",
+            state: "Maharashtra",
+            rating: 4.7,
+            reviews: 67,
+            icon: "🌿",
+            url: "./25-leaflings-nursery/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/25-leaflings-nursery/"
+        },
+        {
+            sNo: "26",
+            name: "PARIHAR NURSERY AND BONSAI",
+            category: "Nursery/Plant Shop",
+            city: "Nagpur",
+            state: "Maharashtra",
+            rating: 4.9,
+            reviews: 109,
+            icon: "🌿",
+            url: "./26-parihar-nursery-and-bonsai/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/26-parihar-nursery-and-bonsai/"
+        },
+        {
+            sNo: "27",
+            name: "Bharatvarsha Nursery Nagpur",
+            category: "Nursery/Plant Shop",
+            city: "Nagpur",
+            state: "Maharashtra",
+            rating: 4.8,
+            reviews: 134,
+            icon: "🌿",
+            url: "./27-bharatvarsha-nursery-nagpur/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/27-bharatvarsha-nursery-nagpur/"
+        },
+        {
+            sNo: "28",
+            name: "Bharat Nursery",
+            category: "Nursery/Plant Shop",
+            city: "Nagpur",
+            state: "Maharashtra",
+            rating: 3.9,
+            reviews: 58,
+            icon: "🌿",
+            url: "./28-bharat-nursery/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/28-bharat-nursery/"
+        },
+        {
+            sNo: "29",
+            name: "Dattasai Nursery",
+            category: "Nursery/Plant Shop",
+            city: "Nagpur",
+            state: "Maharashtra",
+            rating: 4.1,
+            reviews: 28,
+            icon: "🌿",
+            url: "./29-dattasai-nursery/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/29-dattasai-nursery/"
+        },
+        {
+            sNo: "30",
+            name: "SAMRAT NURSERY",
+            category: "Nursery/Plant Shop",
+            city: "Nagpur",
+            state: "Maharashtra",
+            rating: 5.0,
+            reviews: 1,
+            icon: "🌿",
+            url: "./30-samrat-nursery/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/30-samrat-nursery/"
+        },
+        {
+            sNo: "31",
+            name: "Harshii Mehendi Artist",
+            category: "Mehendi Artist",
+            city: "Indore",
+            state: "Madhya Pradesh",
+            rating: 4.9,
+            reviews: 92,
+            icon: "✨",
+            url: "./31-harshii-mehendi-artist/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/31-harshii-mehendi-artist/"
+        },
+        {
+            sNo: "32",
+            name: "Best geetanshi mehndi artist",
+            category: "Mehendi Artist",
+            city: "Indore",
+            state: "Madhya Pradesh",
+            rating: 4.9,
+            reviews: 40,
+            icon: "✨",
+            url: "./32-best-geetanshi-mehndi-artist/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/32-best-geetanshi-mehndi-artist/"
+        },
+        {
+            sNo: "33",
+            name: "Aishwarya Mehndi Art",
+            category: "Mehendi Artist",
+            city: "Indore",
+            state: "Madhya Pradesh",
+            rating: 4.9,
+            reviews: 120,
+            icon: "✨",
+            url: "./33-aishwarya-mehndi-art/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/33-aishwarya-mehndi-art/"
+        },
+        {
+            sNo: "34",
+            name: "Parihar Mehndi Art",
+            category: "Mehendi Artist",
+            city: "Indore",
+            state: "Madhya Pradesh",
+            rating: 4.9,
+            reviews: 68,
+            icon: "✨",
+            url: "./34-parihar-mehndi-art/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/34-parihar-mehndi-art/"
+        },
+        {
+            sNo: "35",
+            name: "Pooja Mehandi",
+            category: "Mehendi Artist",
+            city: "Indore",
+            state: "Madhya Pradesh",
+            rating: 4.9,
+            reviews: 179,
+            icon: "✨",
+            url: "./35-pooja-mehandi/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/35-pooja-mehandi/"
+        },
+        {
+            sNo: "36",
+            name: "MEHANDI SERVICE AT YOUR PLACES",
+            category: "Mehendi Artist",
+            city: "Indore",
+            state: "Madhya Pradesh",
+            rating: 5.0,
+            reviews: 45,
+            icon: "✨",
+            url: "./36-mehandi-service-at-your-places/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/36-mehandi-service-at-your-places/"
+        },
+        {
+            sNo: "37",
+            name: "Nidhi Mehndi Studio",
+            category: "Mehendi Artist",
+            city: "Indore",
+            state: "Madhya Pradesh",
+            rating: 4.8,
+            reviews: 118,
+            icon: "✨",
+            url: "./37-nidhi-mehndi-studio/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/37-nidhi-mehndi-studio/"
+        },
+        {
+            sNo: "38",
+            name: "FAST TRACK LOGISTIC SOLUTIONS",
+            category: "Packers & Movers",
+            city: "Vadodara",
+            state: "Gujarat",
+            rating: 5.0,
+            reviews: 39,
+            icon: "🚛",
+            url: "./38-fast-track-logistic-solutions/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/38-fast-track-logistic-solutions/"
+        },
+        {
+            sNo: "39",
+            name: "Victoria Packers & Movers Vadodara",
+            category: "Packers & Movers",
+            city: "Vadodara",
+            state: "Gujarat",
+            rating: 4.9,
+            reviews: 216,
+            icon: "🚛",
+            url: "./39-victoria-packers-movers-vadodara/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/39-victoria-packers-movers-vadodara/"
+        },
+        {
+            sNo: "40",
+            name: "DKR PACKERS AND MOVERS",
+            category: "Packers & Movers",
+            city: "Vadodara",
+            state: "Gujarat",
+            rating: 5.0,
+            reviews: 65,
+            icon: "🚛",
+            url: "./40-dkr-packers-and-movers/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/40-dkr-packers-and-movers/"
+        },
+        {
+            sNo: "41",
+            name: "Baroda Packers And Movers",
+            category: "Packers & Movers",
+            city: "Vadodara",
+            state: "Gujarat",
+            rating: 4.9,
+            reviews: 40,
+            icon: "🚛",
+            url: "./41-baroda-packers-and-movers/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/41-baroda-packers-and-movers/"
+        },
+        {
+            sNo: "42",
+            name: "Dev Packers and Movers Vadodara",
+            category: "Packers & Movers",
+            city: "Vadodara",
+            state: "Gujarat",
+            rating: 4.8,
+            reviews: 124,
+            icon: "🚛",
+            url: "./42-dev-packers-and-movers-vadodara/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/42-dev-packers-and-movers-vadodara/"
+        },
+        {
+            sNo: "43",
+            name: "All india packers and movers",
+            category: "Packers & Movers",
+            city: "Vadodara",
+            state: "Gujarat",
+            rating: 5.0,
+            reviews: 24,
+            icon: "🚛",
+            url: "./43-all-india-packers-and-movers/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/43-all-india-packers-and-movers/"
+        },
+        {
+            sNo: "44",
+            name: "Sunrise Movers Packers",
+            category: "Packers & Movers",
+            city: "Vadodara",
+            state: "Gujarat",
+            rating: 4.9,
+            reviews: 24,
+            icon: "🚛",
+            url: "./44-sunrise-movers-packers/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/44-sunrise-movers-packers/"
+        },
+        {
+            sNo: "45",
+            name: "Shyam Logistics Packers And Movers",
+            category: "Packers & Movers",
+            city: "Vadodara",
+            state: "Gujarat",
+            rating: 5.0,
+            reviews: 21,
+            icon: "🚛",
+            url: "./45-shyam-logistics-packers-and-movers/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/45-shyam-logistics-packers-and-movers/"
+        },
+        {
+            sNo: "46",
+            name: "mahek events",
+            category: "Event Decorator",
+            city: "Surat",
+            state: "Gujarat",
+            rating: 4.8,
+            reviews: 106,
+            icon: "🎈",
+            url: "./46-mahek-events/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/46-mahek-events/"
+        },
+        {
+            sNo: "47",
+            name: "Balloon Decoration - Event Management",
+            category: "Event Decorator",
+            city: "Surat",
+            state: "Gujarat",
+            rating: 5.0,
+            reviews: 138,
+            icon: "🎈",
+            url: "./47-balloon-decoration-event-management/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/47-balloon-decoration-event-management/"
+        },
+        {
+            sNo: "48",
+            name: "Happy Event - Event Management",
+            category: "Event Decorator",
+            city: "Surat",
+            state: "Gujarat",
+            rating: 5.0,
+            reviews: 60,
+            icon: "🎈",
+            url: "./48-happy-event-event-management/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/48-happy-event-event-management/"
+        },
+        {
+            sNo: "49",
+            name: "Balloon Decoration Shining Star Event",
+            category: "Event Decorator",
+            city: "Surat",
+            state: "Gujarat",
+            rating: 4.8,
+            reviews: 115,
+            icon: "🎈",
+            url: "./49-balloon-decoration-shining-star-event/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/49-balloon-decoration-shining-star-event/"
+        },
+        {
+            sNo: "50",
+            name: "Happy Events Balloon Decoration In Surat",
+            category: "Event Decorator",
+            city: "Surat",
+            state: "Gujarat",
+            rating: 4.9,
+            reviews: 152,
+            icon: "🎈",
+            url: "./50-happy-events-balloon-decoration-in-surat/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/50-happy-events-balloon-decoration-in-surat/"
+        },
+        {
+            sNo: "51",
+            name: "Birthday Decoration Bright Decoration",
+            category: "Event Decorator",
+            city: "Surat",
+            state: "Gujarat",
+            rating: 5.0,
+            reviews: 17,
+            icon: "🎈",
+            url: "./51-birthday-decoration-bright-decoration/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/51-birthday-decoration-bright-decoration/"
+        },
+        {
+            sNo: "52",
+            name: "A P (PLUMBER)",
+            category: "Plumber/Electrician",
+            city: "Kanpur",
+            state: "Uttar Pradesh",
+            rating: 4.9,
+            reviews: 27,
+            icon: "🔧",
+            url: "./52-a-p-plumber/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/52-a-p-plumber/"
+        },
+        {
+            sNo: "53",
+            name: "Pankaj Plumber",
+            category: "Plumber/Electrician",
+            city: "Kanpur",
+            state: "Uttar Pradesh",
+            rating: 4.6,
+            reviews: 33,
+            icon: "🔧",
+            url: "./53-pankaj-plumber/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/53-pankaj-plumber/"
+        },
+        {
+            sNo: "54",
+            name: "Stylish plumber",
+            category: "Plumber/Electrician",
+            city: "Kanpur",
+            state: "Uttar Pradesh",
+            rating: 5.0,
+            reviews: 35,
+            icon: "🔧",
+            url: "./54-stylish-plumber/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/54-stylish-plumber/"
+        },
+        {
+            sNo: "55",
+            name: "Electric Service KNP",
+            category: "Plumber/Electrician",
+            city: "Kanpur",
+            state: "Uttar Pradesh",
+            rating: 4.9,
+            reviews: 207,
+            icon: "🔧",
+            url: "./55-electric-service-knp/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/55-electric-service-knp/"
+        },
+        {
+            sNo: "56",
+            name: "Beauty Station",
+            category: "Beauty Parlour/Salon",
+            city: "Varanasi",
+            state: "Uttar Pradesh",
+            rating: 4.8,
+            reviews: 976,
+            icon: "💅",
+            url: "./56-beauty-station/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/56-beauty-station/"
+        },
+        {
+            sNo: "57",
+            name: "she n me salon",
+            category: "Beauty Parlour/Salon",
+            city: "Varanasi",
+            state: "Uttar Pradesh",
+            rating: 4.5,
+            reviews: 2563,
+            icon: "💅",
+            url: "./57-she-n-me-salon/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/57-she-n-me-salon/"
+        },
+        {
+            sNo: "58",
+            name: "Saundarya Beauty Studio",
+            category: "Beauty Parlour/Salon",
+            city: "Varanasi",
+            state: "Uttar Pradesh",
+            rating: 4.9,
+            reviews: 1372,
+            icon: "💅",
+            url: "./58-saundarya-beauty-studio/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/58-saundarya-beauty-studio/"
+        },
+        {
+            sNo: "59",
+            name: "Beauty n Joy",
+            category: "Beauty Parlour/Salon",
+            city: "Varanasi",
+            state: "Uttar Pradesh",
+            rating: 4.7,
+            reviews: 1579,
+            icon: "💅",
+            url: "./59-beauty-n-joy/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/59-beauty-n-joy/"
+        },
+        {
+            sNo: "60",
+            name: "R Three Salon",
+            category: "Beauty Parlour/Salon",
+            city: "Varanasi",
+            state: "Uttar Pradesh",
+            rating: 4.7,
+            reviews: 1843,
+            icon: "💅",
+            url: "./60-r-three-salon/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/60-r-three-salon/"
+        },
+        {
+            sNo: "61",
+            name: "make & shine",
+            category: "Beauty Parlour/Salon",
+            city: "Varanasi",
+            state: "Uttar Pradesh",
+            rating: 4.7,
+            reviews: 519,
+            icon: "💅",
+            url: "./61-make-shine/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/61-make-shine/"
+        },
+        {
+            sNo: "62",
+            name: "Salon Stories",
+            category: "Beauty Parlour/Salon",
+            city: "Varanasi",
+            state: "Uttar Pradesh",
+            rating: 4.7,
+            reviews: 669,
+            icon: "💅",
+            url: "./62-salon-stories/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/62-salon-stories/"
+        },
+        {
+            sNo: "63",
+            name: "Viva Beauty Salon & Academy",
+            category: "Beauty Parlour/Salon",
+            city: "Varanasi",
+            state: "Uttar Pradesh",
+            rating: 4.7,
+            reviews: 711,
+            icon: "💅",
+            url: "./63-viva-beauty-salon-academy/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/63-viva-beauty-salon-academy/"
+        },
+        {
+            sNo: "64",
+            name: "Bhagwati Ayurved",
+            category: "Ayurvedic/Herbal Store",
+            city: "Patna",
+            state: "Bihar",
+            rating: 4.9,
+            reviews: 326,
+            icon: "🍃",
+            url: "./64-bhagwati-ayurved/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/64-bhagwati-ayurved/"
+        },
+        {
+            sNo: "65",
+            name: "Satayasha Ayurvedic Herbal IMC Store",
+            category: "Ayurvedic/Herbal Store",
+            city: "Patna",
+            state: "Bihar",
+            rating: 5.0,
+            reviews: 2,
+            icon: "🍃",
+            url: "./65-satayasha-ayurvedic-herbal-imc-store/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/65-satayasha-ayurvedic-herbal-imc-store/"
+        },
+        {
+            sNo: "66",
+            name: "Atharva Ayurvedic Store",
+            category: "Ayurvedic/Herbal Store",
+            city: "Patna",
+            state: "Bihar",
+            rating: 4.9,
+            reviews: 19,
+            icon: "🍃",
+            url: "./66-atharva-ayurvedic-store/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/66-atharva-ayurvedic-store/"
+        },
+        {
+            sNo: "67",
+            name: "Jeevan Aayurved Bhawan",
+            category: "Ayurvedic/Herbal Store",
+            city: "Patna",
+            state: "Bihar",
+            rating: 4.3,
+            reviews: 3,
+            icon: "🍃",
+            url: "./67-jeevan-aayurved-bhawan/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/67-jeevan-aayurved-bhawan/"
+        },
+        {
+            sNo: "68",
+            name: "Niramay Health Care Ayurvedic",
+            category: "Ayurvedic/Herbal Store",
+            city: "Patna",
+            state: "Bihar",
+            rating: 4.9,
+            reviews: 15,
+            icon: "🍃",
+            url: "./68-niramay-health-care-ayurvedic/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/68-niramay-health-care-ayurvedic/"
+        },
+        {
+            sNo: "69",
+            name: "Studio Agra",
+            category: "Photography Studio",
+            city: "Agra",
+            state: "Uttar Pradesh",
+            rating: 4.9,
+            reviews: 628,
+            icon: "📷",
+            url: "./69-studio-agra/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/69-studio-agra/"
+        },
+        {
+            sNo: "70",
+            name: "Honey Photography & Digital Studio",
+            category: "Photography Studio",
+            city: "Agra",
+            state: "Uttar Pradesh",
+            rating: 4.9,
+            reviews: 507,
+            icon: "📷",
+            url: "./70-honey-photography-digital-studio/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/70-honey-photography-digital-studio/"
+        },
+        {
+            sNo: "71",
+            name: "Shiva Art Studio",
+            category: "Photography Studio",
+            city: "Agra",
+            state: "Uttar Pradesh",
+            rating: 4.9,
+            reviews: 369,
+            icon: "📷",
+            url: "./71-shiva-art-studio/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/71-shiva-art-studio/"
+        },
+        {
+            sNo: "72",
+            name: "PriyaLall's Photography Pvt. Ltd.",
+            category: "Photography Studio",
+            city: "Agra",
+            state: "Uttar Pradesh",
+            rating: 4.7,
+            reviews: 568,
+            icon: "📷",
+            url: "./72-priyalalls-photography-pvt-ltd/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/72-priyalalls-photography-pvt-ltd/"
+        },
+        {
+            sNo: "73",
+            name: "Chopra Digital Colour Lab",
+            category: "Photography Studio",
+            city: "Agra",
+            state: "Uttar Pradesh",
+            rating: 4.8,
+            reviews: 540,
+            icon: "📷",
+            url: "./73-chopra-digital-colour-lab/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/73-chopra-digital-colour-lab/"
+        },
+        {
+            sNo: "74",
+            name: "The Rathi Studio",
+            category: "Photography Studio",
+            city: "Agra",
+            state: "Uttar Pradesh",
+            rating: 4.9,
+            reviews: 227,
+            icon: "📷",
+            url: "./74-the-rathi-studio/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/74-the-rathi-studio/"
+        },
+        {
+            sNo: "75",
+            name: "STUDIO NEXT",
+            category: "Photography Studio",
+            city: "Agra",
+            state: "Uttar Pradesh",
+            rating: 4.8,
+            reviews: 86,
+            icon: "📷",
+            url: "./75-studio-next/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/75-studio-next/"
+        },
+        {
+            sNo: "76",
+            name: "Filmphic Productions",
+            category: "Photography Studio",
+            city: "Agra",
+            state: "Uttar Pradesh",
+            rating: 4.9,
+            reviews: 497,
+            icon: "📷",
+            url: "./76-filmphic-productions/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/76-filmphic-productions/"
+        },
+        {
+            sNo: "77",
+            name: "Vraj Construction Pvt Ltd",
+            category: "Civil Contractor",
+            city: "Nashik",
+            state: "Maharashtra",
+            rating: 5.0,
+            reviews: 13,
+            icon: "🏗️",
+            url: "./77-vraj-construction-pvt-ltd/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/77-vraj-construction-pvt-ltd/"
+        },
+        {
+            sNo: "78",
+            name: "RKC CONTRACTORS & CONSULTANT",
+            category: "Civil Contractor",
+            city: "Nashik",
+            state: "Maharashtra",
+            rating: 5.0,
+            reviews: 9,
+            icon: "🏗️",
+            url: "./78-rkc-contractors-consultant/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/78-rkc-contractors-consultant/"
+        },
+        {
+            sNo: "79",
+            name: "Shrinath Construction",
+            category: "Civil Contractor",
+            city: "Nashik",
+            state: "Maharashtra",
+            rating: 4.8,
+            reviews: 38,
+            icon: "🏗️",
+            url: "./79-shrinath-construction/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/79-shrinath-construction/"
+        },
+        {
+            sNo: "80",
+            name: "Suvidha Nirmiti vikas Pvt.ltd",
+            category: "Civil Contractor",
+            city: "Nashik",
+            state: "Maharashtra",
+            rating: 5.0,
+            reviews: 8,
+            icon: "🏗️",
+            url: "./80-suvidha-nirmiti-vikas-pvtltd/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/80-suvidha-nirmiti-vikas-pvtltd/"
+        },
+        {
+            sNo: "81",
+            name: "Prabhavi Construction",
+            category: "Civil Contractor",
+            city: "Nashik",
+            state: "Maharashtra",
+            rating: 4.4,
+            reviews: 25,
+            icon: "🏗️",
+            url: "./81-prabhavi-construction/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/81-prabhavi-construction/"
+        },
+        {
+            sNo: "82",
+            name: "Ellora Engineering Procurement Construction",
+            category: "Civil Contractor",
+            city: "Nashik",
+            state: "Maharashtra",
+            rating: 4.5,
+            reviews: 56,
+            icon: "🏗️",
+            url: "./82-ellora-engineering-procurement-construction/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/82-ellora-engineering-procurement-construction/"
+        },
+        {
+            sNo: "83",
+            name: "Vibe Dance Academy",
+            category: "Dance/Music Classes",
+            city: "Coimbatore",
+            state: "Tamil Nadu",
+            rating: 5.0,
+            reviews: 180,
+            icon: "🎵",
+            url: "./83-vibe-dance-academy/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/83-vibe-dance-academy/"
+        },
+        {
+            sNo: "84",
+            name: "eMotion Dance Studio",
+            category: "Dance/Music Classes",
+            city: "Coimbatore",
+            state: "Tamil Nadu",
+            rating: 5.0,
+            reviews: 325,
+            icon: "🎵",
+            url: "./84-emotion-dance-studio/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/84-emotion-dance-studio/"
+        },
+        {
+            sNo: "85",
+            name: "TDA Thamizhko Dance Academy",
+            category: "Dance/Music Classes",
+            city: "Coimbatore",
+            state: "Tamil Nadu",
+            rating: 4.9,
+            reviews: 135,
+            icon: "🎵",
+            url: "./85-tda-thamizhko-dance-academy/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/85-tda-thamizhko-dance-academy/"
+        },
+        {
+            sNo: "86",
+            name: "Nataraja Kalakshetra By Nayana",
+            category: "Dance/Music Classes",
+            city: "Coimbatore",
+            state: "Tamil Nadu",
+            rating: 4.9,
+            reviews: 134,
+            icon: "🎵",
+            url: "./86-nataraja-kalakshetra-by-nayana/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/86-nataraja-kalakshetra-by-nayana/"
+        },
+        {
+            sNo: "87",
+            name: "Shree Music Academy",
+            category: "Dance/Music Classes",
+            city: "Coimbatore",
+            state: "Tamil Nadu",
+            rating: 5.0,
+            reviews: 33,
+            icon: "🎵",
+            url: "./87-shree-music-academy/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/87-shree-music-academy/"
+        },
+        {
+            sNo: "88",
+            name: "g2 Dance Studio",
+            category: "Dance/Music Classes",
+            city: "Coimbatore",
+            state: "Tamil Nadu",
+            rating: 5.0,
+            reviews: 53,
+            icon: "🎵",
+            url: "./88-g2-dance-studio/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/88-g2-dance-studio/"
+        },
+        {
+            sNo: "89",
+            name: "Foot Lock Dance School Airport",
+            category: "Dance/Music Classes",
+            city: "Coimbatore",
+            state: "Tamil Nadu",
+            rating: 5.0,
+            reviews: 397,
+            icon: "🎵",
+            url: "./89-foot-lock-dance-school-airport/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/89-foot-lock-dance-school-airport/"
+        },
+        {
+            sNo: "90",
+            name: "Vassavi School of Dance and Music",
+            category: "Dance/Music Classes",
+            city: "Coimbatore",
+            state: "Tamil Nadu",
+            rating: 5.0,
+            reviews: 24,
+            icon: "🎵",
+            url: "./90-vassavi-school-of-dance-and-music/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/90-vassavi-school-of-dance-and-music/"
+        },
+        {
+            sNo: "91",
+            name: "Cool Enterprise AC Sales & Service",
+            category: "AC/Refrigeration Repair",
+            city: "Rajkot",
+            state: "Gujarat",
+            rating: 4.7,
+            reviews: 45,
+            icon: "❄️",
+            url: "./91-cool-enterprise-ac-sales-service/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/91-cool-enterprise-ac-sales-service/"
+        },
+        {
+            sNo: "92",
+            name: "AVADH REFRIGERATION",
+            category: "AC/Refrigeration Repair",
+            city: "Rajkot",
+            state: "Gujarat",
+            rating: 5.0,
+            reviews: 56,
+            icon: "❄️",
+            url: "./92-avadh-refrigeration/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/92-avadh-refrigeration/"
+        },
+        {
+            sNo: "93",
+            name: "Balaji Refrigeration",
+            category: "AC/Refrigeration Repair",
+            city: "Rajkot",
+            state: "Gujarat",
+            rating: 3.7,
+            reviews: 3,
+            icon: "❄️",
+            url: "./93-balaji-refrigeration/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/93-balaji-refrigeration/"
+        },
+        {
+            sNo: "94",
+            name: "Jay Khodiyar Refrigeration",
+            category: "AC/Refrigeration Repair",
+            city: "Rajkot",
+            state: "Gujarat",
+            rating: 5.0,
+            reviews: 8,
+            icon: "❄️",
+            url: "./94-jay-khodiyar-refrigeration/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/94-jay-khodiyar-refrigeration/"
+        },
+        {
+            sNo: "95",
+            name: "Neelkanth Cool - AC Service Repair & Sales",
+            category: "AC/Refrigeration Repair",
+            city: "Rajkot",
+            state: "Gujarat",
+            rating: 4.7,
+            reviews: 382,
+            icon: "❄️",
+            url: "./95-neelkanth-cool-ac-service-repair-sales/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/95-neelkanth-cool-ac-service-repair-sales/"
+        },
+        {
+            sNo: "96",
+            name: "Creative Air System",
+            category: "AC/Refrigeration Repair",
+            city: "Rajkot",
+            state: "Gujarat",
+            rating: 4.6,
+            reviews: 16,
+            icon: "❄️",
+            url: "./96-creative-air-system/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/96-creative-air-system/"
+        },
+        {
+            sNo: "97",
+            name: "RK Refrigeration",
+            category: "AC/Refrigeration Repair",
+            city: "Rajkot",
+            state: "Gujarat",
+            rating: 4.8,
+            reviews: 26,
+            icon: "❄️",
+            url: "./97-rk-refrigeration/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/97-rk-refrigeration/"
+        },
+        {
+            sNo: "98",
+            name: "HS Darzi Studio Jaipur",
+            category: "Tailor/Boutique",
+            city: "Jaipur",
+            state: "Rajasthan",
+            rating: 3.5,
+            reviews: 129,
+            icon: "📏",
+            url: "./98-hs-darzi-studio-jaipur/",
+            liveUrl: "https://armaanfarooqui22.github.io/business-websites/98-hs-darzi-studio-jaipur/"
+        }
+        ];
+
+        let activeCategory = 'All';
+        let searchKeyword = '';
+
+        function renderGrid() {
+            const grid = document.getElementById('directory-grid');
+            const emptyState = document.getElementById('empty-state');
+            grid.innerHTML = '';
+            
+            const filtered = BUSINESSES.filter(b => {
+                const matchesCat = activeCategory === 'All' || b.category === activeCategory;
+                const matchesSearch = searchKeyword === '' || 
+                    b.name.toLowerCase().includes(searchKeyword) ||
+                    b.category.toLowerCase().includes(searchKeyword) ||
+                    b.city.toLowerCase().includes(searchKeyword) ||
+                    b.state.toLowerCase().includes(searchKeyword);
+                return matchesCat && matchesSearch;
+            });
+
+            document.getElementById('results-count').innerText = `Showing ${filtered.length} businesses`;
+
+            if (filtered.length === 0) {
+                emptyState.style.display = 'block';
+                return;
+            } else {
+                emptyState.style.display = 'none';
+            }
+
+            filtered.forEach(b => {
+                const card = document.createElement('div');
+                card.className = 'biz-card';
+                
+                // Draw stars
+                let starsStr = '';
+                const fullStars = Math.floor(b.rating);
+                for(let i=0; i<fullStars; i++) starsStr += '★';
+                if(b.rating - fullStars >= 0.3) starsStr += '½';
+                const emptyStars = 5 - Math.ceil(b.rating);
+                for(let i=0; i<emptyStars; i++) starsStr += '☆';
+
+                card.innerHTML = `
+                    <div>
+                        <div class="biz-header">
+                            <div class="biz-icon-container">${b.icon}</div>
+                            <div class="biz-title-box">
+                                <h3>${b.name}</h3>
+                                <span class="biz-category">${b.category}</span>
+                            </div>
+                        </div>
+                        <div class="biz-details">
+                            <div class="biz-details-row">📍 <span>${b.city}, ${b.state}</span></div>
+                            <div class="biz-rating-row">
+                                <span class="rating-badge">${b.rating.toFixed(1)} ★</span>
+                                <span class="stars-box">${starsStr}</span>
+                                <span style="font-size:12px; opacity:0.7;">(${b.reviews} reviews)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 10px; width: 100%; margin-top: auto;">
+                        <a href="${b.url}" class="biz-btn" target="_blank" style="flex-grow: 1;">View Demo ➜</a>
+                        <button class="copy-btn" onclick="copyLink('${b.liveUrl}', '${b.url}', this)" title="Copy Website Link for Leads" aria-label="Copy Website Link">📋</button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterCategory(cat) {
+            activeCategory = cat;
+            
+            // Toggle active classes
+            const chips = document.querySelectorAll('.chip');
+            chips.forEach(c => {
+                if (c.innerText.includes(cat) || (cat === 'All' && c.innerText.includes('All'))) {
+                    c.classList.add('active');
+                } else {
+                    c.classList.remove('active');
+                }
+            });
+            renderGrid();
+        }
+
+        function handleSearch() {
+            searchKeyword = document.getElementById('search-bar').value.toLowerCase().trim();
+            renderGrid();
+        }
+
+        function copyLink(liveUrl, localUrl, button) {
+            let urlToCopy = liveUrl;
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                const a = document.createElement('a');
+                a.href = localUrl;
+                urlToCopy = a.href;
+            }
+            navigator.clipboard.writeText(urlToCopy).then(() => {
+                const originalText = button.innerHTML;
+                button.innerHTML = '✓';
+                button.classList.add('copied');
+                
+                showToast(`Copied link: ${urlToCopy}`);
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('Could not copy link: ', err);
+            });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').innerText = message;
+            toast.classList.add('active');
+            setTimeout(() => {
+                toast.classList.remove('active');
+            }, 3000);
+        }
+
+        // Initial render
+        window.addEventListener('DOMContentLoaded', () => {
+            renderGrid();
+        });
+    </script>
+</body>
+</html>
